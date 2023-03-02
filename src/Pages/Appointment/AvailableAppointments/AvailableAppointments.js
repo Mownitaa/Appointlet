@@ -45,7 +45,12 @@ const bookings=[
 const AvailableAppointments = ({date}) => {
   return (
     <Container>
-    <h1>Available Appointments</h1>
+    <h1 style={{
+                marginBottom:'35px',
+                color:'#810054'
+              }}  >
+       Available Appointments
+    </h1>
     <Grid container spacing={2}>
       {
         bookings.map(booking=> <Booking
