@@ -5,6 +5,8 @@ import Appointment from './Pages/Appointment/Appointment/Appointment';
 import Services from './Pages/Home/Services/Services';
 import Navigation from './Pages/Shared/Navigation/Navigation';
 import Footer from './Pages/Shared/Footer/Footer';
+import Login from './Pages/Login/Login/Login';
+import Register from './Pages/Login/Register/Register';
 
 function App() {
   return (
@@ -17,6 +19,12 @@ function App() {
       </Route>
       <Route exact path="/home"> 
         <Home></Home>
+      </Route>
+      <Route exact path="/login"> 
+        <Login></Login>
+      </Route>
+      <Route exact path="/register"> 
+        <Register></Register>
       </Route>
       <Route exact path="/services"> 
         <Services></Services>
