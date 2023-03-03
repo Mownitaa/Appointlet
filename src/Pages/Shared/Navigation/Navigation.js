@@ -13,9 +13,13 @@ import { faMailBulk, faPhoneSquare } from '@fortawesome/free-solid-svg-icons'
 import DrawerComp from './Drawer';
 import { Box } from '@mui/system';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 
 const Navigation = () => {
+
+//get user
+const {user,logout} = useAuth();
 
 
   const [value, setValue] = useState();
@@ -99,11 +103,18 @@ appointlet@appointlet.com
               <NavLink to="/appointment" style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Appointment</MenuItem></NavLink>
               <NavLink to="/contact" style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Contact</MenuItem></NavLink>
             </Tabs>
-            <NavLink to="/login" style={{textDecoration:'none'}}>
+            {
+              user?.email ?
+            <Button onClick={logout} style={{backgroundColor:'#810054'}} sx={{ marginLeft: "auto" }} variant="contained">
+              Logout
+            </Button>
+              :
+              <NavLink to="/login" style={{textDecoration:'none'}}>
             <Button style={{backgroundColor:'#810054'}} sx={{ marginLeft: "auto" }} variant="contained">
               Login
             </Button>
             </NavLink>
+            }
             <NavLink to="/register" style={{textDecoration:'none'}}>
             <Button style={{backgroundColor:'#810054'}}  sx={{ marginLeft: "10px" }} variant="contained">
               SignUp

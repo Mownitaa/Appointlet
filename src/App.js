@@ -7,15 +7,17 @@ import Navigation from './Pages/Shared/Navigation/Navigation';
 import Footer from './Pages/Shared/Footer/Footer';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
 
 function App() {
   return (
     <div className="App">
+     <AuthProvider>
      <BrowserRouter>
      <Navigation></Navigation>
      <Switch>
       <Route exact path="/">
-<Home></Home>
+      <Home></Home>
       </Route>
       <Route exact path="/home"> 
         <Home></Home>
@@ -41,7 +43,7 @@ function App() {
      </Switch>
      <Footer></Footer>
      </BrowserRouter>
-     
+     </AuthProvider>
     </div>
   );
 }
