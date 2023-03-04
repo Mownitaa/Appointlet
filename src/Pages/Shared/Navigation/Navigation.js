@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import AppBar from '@mui/material/AppBar';
 import { MenuItem } from '@mui/material';
-import { Button,Toolbar,Tabs,Tab,useMediaQuery,useTheme,Typography, Link } from '@mui/material';
+import { Button,Toolbar,Tabs,useMediaQuery,useTheme,Typography, Link } from '@mui/material';
 
 import logo from "../../../images/logo.PNG"
 
@@ -22,7 +22,8 @@ const Navigation = () => {
 const {user,logout} = useAuth();
 
 
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(1);
+  
   const theme = useTheme();
   console.log(theme);
   const isMatch = useMediaQuery(theme.breakpoints.down("lg"));
@@ -92,7 +93,7 @@ appointlet@appointlet.com
               <NavLink to="/" style={{textDecoration: 'none'}}><MenuItem sx={{ fontSize: "1.5rem",fontWeight:'bold',marginLeft:'-7%',color:'#810054'}}>Appointlet</MenuItem></NavLink>
 
             <Tabs
-              sx={{ marginLeft: "auto" }}
+              // sx={{ marginLeft: "-0.0%" }}
               indicatorColor="secondary"
               textColor="inherit"
               value={value}

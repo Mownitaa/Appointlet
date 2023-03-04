@@ -1,9 +1,13 @@
-import { Button, Container, Grid, TextField, Typography } from '@mui/material'
+import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
     const [loginData,setLoginData] = useState({})
+
+  const {user, registerUser, isLoading, authError} = useAuth();
+
     const handleOnChange = e =>{
         const field = e.target.name;
         const value = e.target.value;
@@ -15,8 +19,10 @@ const Register = () => {
 
     const handleLoginSubmit = e =>{
         if(loginData.password !== loginData.password2){
-            alert('Your Password did not match')
+            alert('Your Password did not match');
+            return
         }
+        registerUser(loginData.email, loginData.password);
         e.preventDefault();
     }
   return (
@@ -27,7 +33,7 @@ const Register = () => {
             Sign Up
         </Typography>
 
-        <form onSubmit={handleLoginSubmit}>
+       { !isLoading && <form onSubmit={handleLoginSubmit}>
         <TextField
           id="outlined-size-small"
           sx={{width:'90%',m:1}}
@@ -72,7 +78,19 @@ const Register = () => {
         <NavLink to="/login" style={{textDecoration:'none'}}>
        Already Have An Account? Please Login
         </NavLink>
-        </form>
+        </form>}
+
+        {isLoading && <CircularProgress/>}
+        {
+          user?.email && <Alert severity="success">
+            User created successfully!
+          </Alert>
+        }
+        {
+          authError && <Alert severity="success">
+            {authError}
+          </Alert>
+        }
 </Grid>
     </Grid>
 </Container>  )

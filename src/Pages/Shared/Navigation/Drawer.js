@@ -9,8 +9,13 @@ import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const DrawerComp = () => {
+  
+//get user
+const {user,logout} = useAuth();
+
   const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
@@ -20,7 +25,7 @@ const DrawerComp = () => {
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
       >
-<List>
+      <List>
         <ListItemButton
           sx={{ marginLeft: "auto",
           display: 'flex',
@@ -33,11 +38,18 @@ const DrawerComp = () => {
             <NavLink to="/appointment" style={{color:'#810054', textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Appointment</MenuItem></NavLink>
             <NavLink to="/contact" style={{color:'#810054',textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Contact</MenuItem></NavLink>
             
-            <NavLink to="/login" style={{textDecoration:'none'}}>
+            {/* {
+               user?.email ?
+               <Button onClick={logout} style={{backgroundColor:'#810054'}}  sx={{ marginTop:'7px',marginLeft: "15px",marginBottom:'15px'}} variant="contained">
+                 Logout
+               </Button>
+              : */}
+              <NavLink to="/login" style={{textDecoration:'none'}}>
             <Button style={{backgroundColor:'#810054'}} sx={{ marginTop:'7px',marginLeft: "15px",marginBottom:'15px'}} variant="contained">
             Login
           </Button>
             </NavLink>
+            {/* } */}
             
           <NavLink to="/register" style={{textDecoration:'none'}}>
           <Button style={{backgroundColor:'#810054'}}  sx={{ marginLeft: "15px" }} variant="contained">
