@@ -17,26 +17,31 @@ const Register = () => {
         // console.log(field, value,newLoginData)
     };
 
-    const handleLoginSubmit = e =>{
+    const handleLoginSubmit = e => {
         if(loginData.password !== loginData.password2){
-            alert('Your Password did not match');
+          <Alert severity="error">
+            Password did not match
+          </Alert>
+            // alert('Your Password did not match');
             return
         }
         registerUser(loginData.email, loginData.password);
         e.preventDefault();
     }
   return (
-<Container sx={{mt:16}}>
-    <Grid container spacing={2}>
+<Container sx={{mt:16,mb:23}}>
     <Grid item sx={12} md={6}>
-        <Typography>
+        <Typography
+         sx={{fontSize:50,fontWeight:"bold"}}
+         style={{color:'#810054'}}
+         >
             Sign Up
         </Typography>
 
        { !isLoading && <form onSubmit={handleLoginSubmit}>
         <TextField
           id="outlined-size-small"
-          sx={{width:'90%',m:1}}
+          sx={{width:'60%',m:1}}
           type="email"
           name="email"
           onChange={handleOnChange}
@@ -45,7 +50,7 @@ const Register = () => {
         />
         <TextField
           id="outlined-size-small"
-          sx={{width:'90%',m:1}}
+          sx={{width:'60%',m:1}}
           type="password"
           name="password"
           onChange={handleOnChange}
@@ -54,7 +59,7 @@ const Register = () => {
         />
         <TextField
           id="outlined-size-small"
-          sx={{width:'90%',m:1}}
+          sx={{width:'60%',m:1}}
           type="password"
           name="password2"
           onChange={handleOnChange}
@@ -67,32 +72,29 @@ const Register = () => {
          <Button
         type="submit"
         variant="contained"
-        sx={{width:'50%',m:1}}
+        sx={{width:'30%',m:1}}
         style={{backgroundColor:'#810054'}}>
           Sign Up
         </Button>
-        <br/>
-        <br/>
-        <br/>
+<br/>
 
         <NavLink to="/login" style={{textDecoration:'none'}}>
-       Already Have An Account? Please Login
+            Already Have An Account? Please Login
         </NavLink>
         </form>}
 
         {isLoading && <CircularProgress/>}
         {
-          user?.email && <Alert severity="success">
+          user?.email && <Alert  sx={{mt:8}} severity="success">
             User created successfully!
           </Alert>
         }
         {
-          authError && <Alert severity="success">
+          authError && <Alert severity="error">
             {authError}
           </Alert>
         }
 </Grid>
-    </Grid>
 </Container>  )
 }
 

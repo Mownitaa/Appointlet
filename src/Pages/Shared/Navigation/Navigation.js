@@ -22,12 +22,12 @@ const Navigation = () => {
 const {user,logout} = useAuth();
 
 
-  const [value, setValue] = useState(1);
+  const [value, setValue] = useState();
   
   const theme = useTheme();
-  console.log(theme);
+  // console.log(theme);
   const isMatch = useMediaQuery(theme.breakpoints.down("lg"));
-  console.log(isMatch);
+  // console.log(isMatch);
   return (
   <div>
 
@@ -90,23 +90,24 @@ appointlet@appointlet.com
               <Toolbar style={{backgroundColor:'#fff'}}>
               <img style={{width:20, height:23}} src={logo}/>
 
-              <NavLink to="/" style={{textDecoration: 'none'}}><MenuItem sx={{ fontSize: "1.5rem",fontWeight:'bold',marginLeft:'-7%',color:'#810054'}}>Appointlet</MenuItem></NavLink>
+              <NavLink to="/" style={{textDecoration: 'none'}}><MenuItem sx={{ fontSize: "1.5rem",fontWeight:'bold',color:'#810054'}}>Appointlet</MenuItem></NavLink>
 
             <Tabs
-              // sx={{ marginLeft: "-0.0%" }}
-              indicatorColor="secondary"
-              textColor="inherit"
-              value={value}
-              onChange={(e, value) => setValue(value)}
+              sx={{ marginLeft: "20%" , marginRight:"20%"}}
+
+              value={false}
+              onChange={(e, value) => setValue(value)} 
             >
               <NavLink to="/services" style={{color:'#810054', textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Services</MenuItem></NavLink>
+
               <NavLink to="/about" style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>About</MenuItem></NavLink>
+
               <NavLink to="/appointment" style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Appointment</MenuItem></NavLink>
               <NavLink to="/contact" style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Contact</MenuItem></NavLink>
             </Tabs>
             {
               user?.email ?
-            <Button onClick={logout} style={{backgroundColor:'#810054'}} sx={{ marginLeft: "auto" }} variant="contained">
+            <Button onClick={logout} style={{backgroundColor:'#810054'}}  variant="contained">
               Logout
             </Button>
               :

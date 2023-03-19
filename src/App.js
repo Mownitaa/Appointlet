@@ -35,12 +35,12 @@ function App() {
       <PrivateRoute exact path="/appointment"> 
         <Appointment></Appointment>
       </PrivateRoute>
-      <Route exact path="/about"> 
+      {/* <Route exact path="/about"> 
+        <About></About>
+      </Route> */}
+      {/* <Route exact path="/contact"> 
         <Appointment></Appointment>
-      </Route>
-      <Route exact path="/contact"> 
-        <Appointment></Appointment>
-      </Route>
+      </Route> */}
      </Switch>
      <Footer></Footer>
      </BrowserRouter>

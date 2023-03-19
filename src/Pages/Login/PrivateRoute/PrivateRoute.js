@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect, Route } from 'react-router-dom'
+import { Redirect, Route } from 'react-router'
 import useAuth from '../../../hooks/useAuth'
 import { CircularProgress } from '@mui/material';
 
@@ -8,7 +8,7 @@ const PrivateRoute = ({children, ...rest}) => {
     if (isLoading) { return <CircularProgress /> }
 
   return (
-<Route> 
+<Route 
     {...rest}
     render={({location}) =>
         user.email ? (
@@ -22,7 +22,7 @@ const PrivateRoute = ({children, ...rest}) => {
             />
         )
     }
-</Route>
+    />
     )
 }
 
