@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Fade from '@mui/material/Fade';
 import Typography from '@mui/material/Typography';
 import { Button, TextField } from '@mui/material';
+import useAuth from '../../../hooks/useAuth';
 
 const style = {
   position: 'absolute',
@@ -21,13 +22,32 @@ const style = {
 
 const BookingModal = ({openBooking,handleBookingClose,date,booking}) => {
   const {name,time} = booking;
+const {user} = useAuth();
+const initialInfo = {patientName: user.displayName, email: user.email, phone:''}
+const [bookingInfo, setBookingInfo] = useState(initialInfo);
+
+const handleOnBlur = e => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newInfo = {...bookingInfo};
+    newInfo[field] = value;
+    // console.log(newInfo);
+    setBookingInfo(newInfo);
+}
 
   const handleBookingSubmit = e =>{
-    alert('submitted');
 
     //collect data
+    const appointment = {
+      ...bookingInfo,
+      time,
+      serviceName: name,
+      date: date.toLocaleDateString()
+    }
     //send to the form
-    
+    console.log(appointment);
+
+
     handleBookingClose();
     e.preventDefault();
   }
@@ -49,7 +69,7 @@ const BookingModal = ({openBooking,handleBookingClose,date,booking}) => {
   >
     <Fade in={openBooking}>
       <Box sx={style}>
-        <Typography id="transition-modal-title" variant="h6" component="h2">
+        <Typography sx={{m:1}} id="transition-modal-title" variant="h6" component="h2">
             {name}
             </Typography>
         <form onSubmit={handleBookingSubmit}>
@@ -63,18 +83,24 @@ const BookingModal = ({openBooking,handleBookingClose,date,booking}) => {
          <TextField
           id="outlined-size-small"
           sx={{width:'90%',m:1}}
-          placeholder="Your Name"
+          name="patientName"
+          onBlur={handleOnBlur}
+          defaultValue={user.displayName}
           size="small"
         />
         <TextField
           id="outlined-size-small"
           sx={{width:'90%',m:1}}
-          placeholder="Your Email"
+          name="email"
+          onBlur={handleOnBlur}
+          defaultValue={user.email}
           size="small"
         />
         <TextField
           id="outlined-size-small"
           sx={{width:'90%',m:1}}
+          name="phone"
+          onBlur={handleOnBlur}
           placeholder="Phone Number"
           size="small"
         />
@@ -82,7 +108,9 @@ const BookingModal = ({openBooking,handleBookingClose,date,booking}) => {
         disbaled
           id="outlined-size-small"
           sx={{width:'90%',m:1}}
-          defaultValue={date}
+          // defaultValue={date}
+          // defaultValue={date.toLocaleDateString()}
+          defaultValue={date.toDateString()}
           size="small"
         />
         <Button

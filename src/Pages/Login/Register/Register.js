@@ -1,31 +1,32 @@
 import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 
 const Register = () => {
     const [loginData,setLoginData] = useState({})
-
+const history = useHistory();
   const {user, registerUser, isLoading, authError} = useAuth();
 
-    const handleOnChange = e =>{
+    const handleOnBlur = e =>{
         const field = e.target.name;
         const value = e.target.value;
         const newLoginData = {...loginData}   
         newLoginData[field]= value;
+        console.log(newLoginData);
         setLoginData(newLoginData);
         // console.log(field, value,newLoginData)
     };
 
     const handleLoginSubmit = e => {
         if(loginData.password !== loginData.password2){
-          <Alert severity="error">
-            Password did not match
-          </Alert>
-            // alert('Your Password did not match');
+          // <Alert severity="error">
+          //   Password did not match
+          // </Alert>
+          alert('Your Password did not match');
             return
         }
-        registerUser(loginData.email, loginData.password);
+        registerUser(loginData.email, loginData.password, loginData.name, history);
         e.preventDefault();
     }
   return (
@@ -42,9 +43,18 @@ const Register = () => {
         <TextField
           id="outlined-size-small"
           sx={{width:'60%',m:1}}
+          type="text"
+          name="name"
+          onChange={handleOnBlur}
+          placeholder="Your Name"
+          size="small"
+        />
+        <TextField
+          id="outlined-size-small"
+          sx={{width:'60%',m:1}}
           type="email"
           name="email"
-          onChange={handleOnChange}
+          onChange={handleOnBlur}
           placeholder="Your Email"
           size="small"
         />
@@ -53,7 +63,7 @@ const Register = () => {
           sx={{width:'60%',m:1}}
           type="password"
           name="password"
-          onChange={handleOnChange}
+          onChange={handleOnBlur}
           placeholder="Password"
           size="small"
         />
@@ -62,7 +72,7 @@ const Register = () => {
           sx={{width:'60%',m:1}}
           type="password"
           name="password2"
-          onChange={handleOnChange}
+          onChange={handleOnBlur}
           placeholder="Re-enter Password"
           size="small"
         />

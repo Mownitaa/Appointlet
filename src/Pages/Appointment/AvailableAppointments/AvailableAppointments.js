@@ -49,7 +49,8 @@ const AvailableAppointments = ({date}) => {
                 marginBottom:'35px',
                 color:'#810054'
               }}  >
-       Available Appointments
+                {/* Available Appointments */}
+       Available Appointments {date.toDateString()}
     </h1>
     <Grid container spacing={2}>
       {

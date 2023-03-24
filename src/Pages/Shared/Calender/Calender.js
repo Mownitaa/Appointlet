@@ -29,12 +29,12 @@ const Calender = ({date, setDate}) => {
 
 
 
-{/* <LocalizationProvider dateAdapter={AdapterDayjs}>
+ {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
   <StaticDatePicker
     displayStaticWrapperAs="desktop"
     date={date}
-    onChange={(newDate) => {
-      setDate(newDate);
+    onChange={(newValue) => {
+      setDate(newValue);
     }}
     renderInput={(params) => <TextField {...params} />}
   />
