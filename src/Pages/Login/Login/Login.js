@@ -31,7 +31,7 @@ const history = useHistory();
 
   return (
 <Container sx={{mt:16,mb:25}}>
-    <Grid item sx={12} md={6}>
+    <Grid item xs={12} md={6}>
         <Typography
          sx={{fontSize:50,fontWeight:"bold"}}
          style={{color:'#810054'}}
@@ -76,6 +76,8 @@ const history = useHistory();
 
         <p>--------------------------------------</p>
         <Button onClick={handleGoogleSignIn} style={{backgroundColor:'#810054'}} variant="contained">Google Sign in</Button>
+        <br/>
+        <br/>
         {isLoading && <CircularProgress/>}
         {
           user?.email && <Alert sx={{mt:8}} severity="success">

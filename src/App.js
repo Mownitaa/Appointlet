@@ -17,28 +17,28 @@ function App() {
      <BrowserRouter>
      <Navigation></Navigation>
      <Switch>
-      <Route exact path="/">
+      <Route exact={true} path="/">
       <Home></Home>
       </Route>
-      <Route exact path="/home"> 
+      <Route exact={true} path="/home"> 
         <Home></Home>
       </Route>
-      <Route exact path="/login"> 
-        <Login></Login>
-      </Route>
-      <Route exact path="/register"> 
-        <Register></Register>
-      </Route>
-      <Route exact path="/services"> 
+      <Route exact={true} path="/services"> 
         <Services></Services>
       </Route>
-      <PrivateRoute exact path="/appointment"> 
+      <PrivateRoute exact={true} path="/appointment"> 
         <Appointment></Appointment>
       </PrivateRoute>
-      {/* <Route exact path="/about"> 
+      <Route exact={true} path="/login"> 
+        <Login></Login>
+      </Route>
+      <Route exact={true} path="/register"> 
+        <Register></Register>
+      </Route>
+      {/* <Route exact="true" path="/about"> 
         <About></About>
       </Route> */}
-      {/* <Route exact path="/contact"> 
+      {/* <Route exact="true" path="/contact"> 
         <Appointment></Appointment>
       </Route> */}
      </Switch>

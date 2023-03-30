@@ -3,7 +3,7 @@ import React from 'react'
 import Paper from '@mui/material/Paper';
 import BookingModal from '../BookingModal/BookingModal';
 
-const Booking = ({booking, date}) => {
+const Booking = ({booking, date, setBookingSuccess}) => {
     const {name, time, space} = booking;
 const [openBooking, setBookingOpen] = React.useState(false);
   const handleBookingOpen = () => setBookingOpen(true);
@@ -13,13 +13,13 @@ const [openBooking, setBookingOpen] = React.useState(false);
        <> 
        <Grid item xs={12} sm={6} md={4}>
             <Paper elevation={3}b sx={{py:5}}>
-                <Typography variant="h5" sx={{fontWeight:'bold'}}gutterBottom component="div">
+                <Typography variant="h5" sx={{fontWeight:'bold'}}gutterBottom>
                     {name}
                 </Typography>
-                <Typography variant="h5" gutterBottom component="div">
+                <Typography variant="h5" gutterBottom>
                     {time}
                 </Typography>
-                <Typography variant="caption" display="block" gutterBottom >
+                <Typography variant="caption" display="block" gutterBottom>
                     {space} SPACES AVAILABLE
                 </Typography>
 
@@ -36,6 +36,7 @@ const [openBooking, setBookingOpen] = React.useState(false);
       booking={booking}
       openBooking={openBooking}
       handleBookingClose={handleBookingClose}
+      setBookingSuccess={setBookingSuccess}
       ></BookingModal>
       </>
   )

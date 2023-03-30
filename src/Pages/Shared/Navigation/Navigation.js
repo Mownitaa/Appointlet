@@ -69,8 +69,8 @@ const {user,logout} = useAuth();
     >
 
 
-    <Typography style={{marginTop:0,color:'white',backgroundColor: '#810054'}}>
-    <Typography style={{textAlign:'left',paddingLeft:55}}>Follow health updates
+    <div style={{marginTop:0,color:'white',backgroundColor: '#810054'}}>
+    <div style={{textAlign:'left',paddingLeft:55}}>Follow health updates
       
       <FontAwesomeIcon style={{paddingLeft:9}} icon={faFacebookSquare} />
       <FontAwesomeIcon style={{paddingInline:24}} icon={faInstagramSquare} />
@@ -83,8 +83,8 @@ const {user,logout} = useAuth();
 <FontAwesomeIcon style={{paddingLeft:30,paddingRight:3}} icon={faMailBulk}/>
 appointlet@appointlet.com
 </span>
-      </Typography>
-    </Typography>
+      </div>
+    </div>
 </div>
             <Box>
               <Toolbar style={{backgroundColor:'#fff'}}>

@@ -24,7 +24,7 @@ const Service = (props) => {
         <Typography sx={{ fontSize: 20 }} color="text.secondary" gutterBottom>
           {name}
         </Typography>
-        <Typography variant="h5" style={{textAlign:'left'}} sx={{mt:2,fontWeight:'bold',color:'#810054'}} component="div">
+        <Typography variant="h5" style={{textAlign:'left'}} sx={{mt:2,fontWeight:'bold',color:'#810054'}}>
           {title}
         </Typography>
        

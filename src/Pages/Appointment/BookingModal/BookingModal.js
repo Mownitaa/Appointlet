@@ -20,7 +20,7 @@ const style = {
 };
 
 
-const BookingModal = ({openBooking,handleBookingClose,date,booking}) => {
+const BookingModal = ({openBooking,handleBookingClose,date,booking,setBookingSuccess}) => {
   const {name,time} = booking;
 const {user} = useAuth();
 const initialInfo = {patientName: user.displayName, email: user.email, phone:''}
@@ -44,11 +44,26 @@ const handleOnBlur = e => {
       serviceName: name,
       date: date.toLocaleDateString()
     }
-    //send to the form
-    console.log(appointment);
+    //send to the server
+    fetch('http://localhost:5000/appointments', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      // "mode":"cors",
+      body: JSON.stringify(appointment)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.insertedId){
+        setBookingSuccess(true);
+        //  setBookingSuccess(' ');
+        handleBookingClose();
+        
+      }
+      // console.log(data)
+    })
 
-
-    handleBookingClose();
     e.preventDefault();
   }
 
@@ -69,12 +84,12 @@ const handleOnBlur = e => {
   >
     <Fade in={openBooking}>
       <Box sx={style}>
-        <Typography sx={{m:1}} id="transition-modal-title" variant="h6" component="h2">
+        <Typography sx={{m:1}} id="transition-modal-title" variant="h6">
             {name}
             </Typography>
         <form onSubmit={handleBookingSubmit}>
         <TextField
-        disbaled
+        disabled
           id="outlined-size-small"
           sx={{width:'90%',m:1}}
           defaultValue={time}
@@ -105,7 +120,7 @@ const handleOnBlur = e => {
           size="small"
         />
         <TextField
-        disbaled
+        disabled
           id="outlined-size-small"
           sx={{width:'90%',m:1}}
           // defaultValue={date}
