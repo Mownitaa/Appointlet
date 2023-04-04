@@ -6,7 +6,6 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import 'animate.css';
-import Navigation from '../../Shared/Navigation/Navigation';
 
 
 const Service = (props) => {

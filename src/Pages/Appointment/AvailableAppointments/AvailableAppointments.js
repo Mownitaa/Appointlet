@@ -51,8 +51,8 @@ const AvailableAppointments = ({date}) => {
                 marginBottom:'35px',
                 color:'#810054'
               }}  >
-                {/* Available Appointments */}
-       Available Appointments {date.toDateString()}
+                Available Appointments
+       {/* Available Appointments {date.toDateString()} */}
     </h1>
     {bookingSuccess && 
     <Alert sx={{mt:8}} severity="success">

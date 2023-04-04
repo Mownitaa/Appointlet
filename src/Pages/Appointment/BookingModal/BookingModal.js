@@ -21,11 +21,10 @@ const style = {
 
 
 const BookingModal = ({openBooking,handleBookingClose,date,booking,setBookingSuccess}) => {
-  const {name,time} = booking;
+const {name,time} = booking;
 const {user} = useAuth();
 const initialInfo = {patientName: user.displayName, email: user.email, phone:''}
 const [bookingInfo, setBookingInfo] = useState(initialInfo);
-
 const handleOnBlur = e => {
     const field = e.target.name;
     const value = e.target.value;
@@ -42,7 +41,8 @@ const handleOnBlur = e => {
       ...bookingInfo,
       time,
       serviceName: name,
-      date: date.toLocaleDateString()
+      date: new Date(date).toLocaleDateString()
+      // date: date.toLocaleDateString()
     }
     //send to the server
     fetch('http://localhost:5000/appointments', {
@@ -123,9 +123,9 @@ const handleOnBlur = e => {
         disabled
           id="outlined-size-small"
           sx={{width:'90%',m:1}}
-          // defaultValue={date}
-          // defaultValue={date.toLocaleDateString()}
-          defaultValue={date.toDateString()}
+          // defaultValue={date.toString()}
+          defaultValue={date.toLocaleString()}
+          // defaultValue={date.toDateString()}
           size="small"
         />
         <Button

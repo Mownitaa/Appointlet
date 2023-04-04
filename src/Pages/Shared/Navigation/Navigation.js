@@ -52,7 +52,7 @@ const {user,logout} = useAuth();
           <>
           <Toolbar style={{backgroundColor:'#fff'}}>
            <img style={{width:20, height:23}} src={logo}/>
-            <NavLink to="/" style={{ textDecoration: 'none'}}><MenuItem style={{fontSize: "1.5rem",fontWeight:'bold',color:'#810054'}}>Appointlet</MenuItem></NavLink>
+            <NavLink to="/" style={{ textDecoration: 'none'}}><MenuItem style={{fontSize: "25px",fontWeight:'bold',color:'#810054'}}>Appointlet</MenuItem></NavLink>
             <DrawerComp/>
             </Toolbar>
           </>
@@ -69,7 +69,7 @@ const {user,logout} = useAuth();
     >
 
 
-    <div style={{marginTop:0,color:'white',backgroundColor: '#810054'}}>
+    {/* <div style={{marginTop:0,color:'white',backgroundColor: '#810054'}}>
     <div style={{textAlign:'left',paddingLeft:55}}>Follow health updates
       
       <FontAwesomeIcon style={{paddingLeft:9}} icon={faFacebookSquare} />
@@ -79,21 +79,21 @@ const {user,logout} = useAuth();
 
       <span style={{marginLeft:'52%'}}>
       <FontAwesomeIcon style={{paddingRight:3}} icon={faPhoneSquare}/>
-01927951179
+019******79
 <FontAwesomeIcon style={{paddingLeft:30,paddingRight:3}} icon={faMailBulk}/>
 appointlet@appointlet.com
 </span>
-      </div>
-    </div>
+      </div> 
+    </div>*/}
 </div>
             <Box>
-              <Toolbar style={{backgroundColor:'#fff'}}>
+              <Toolbar style={{paddingLeft:'30px', backgroundColor:'#fff'}}>
               <img style={{width:20, height:23}} src={logo}/>
 
-              <NavLink to="/" style={{textDecoration: 'none'}}><MenuItem sx={{ fontSize: "1.5rem",fontWeight:'bold',color:'#810054'}}>Appointlet</MenuItem></NavLink>
+              <NavLink to="/" style={{textDecoration: 'none'}}><MenuItem sx={{marginLeft:'-8px', fontSize: "1.5rem",fontWeight:'bold',color:'#810054'}}>Appointlet</MenuItem></NavLink>
 
             <Tabs
-              sx={{ marginLeft: "20%" , marginRight:"20%"}}
+              sx={{ marginLeft: "18%" , marginRight:"15%"}}
 
               value={false}
               onChange={(e, value) => setValue(value)} 
@@ -107,9 +107,16 @@ appointlet@appointlet.com
             </Tabs>
             {
               user?.email ?
-            <Button onClick={logout} style={{backgroundColor:'#810054'}}  variant="contained">
+              <Box>
+                <NavLink to="/dashboard" style={{marginRight:'5px',textDecoration:'none'}}>
+            <Button style={{backgroundColor:'#810054'}} sx={{ marginLeft: "auto" }} variant="contained">
+              Dashboard
+            </Button>
+            </NavLink>
+                  <Button onClick={logout} style={{backgroundColor:'#810054'}}  variant="contained">
               Logout
             </Button>
+              </Box>
               :
               <NavLink to="/login" style={{textDecoration:'none'}}>
             <Button style={{backgroundColor:'#810054'}} sx={{ marginLeft: "auto" }} variant="contained">
@@ -117,11 +124,11 @@ appointlet@appointlet.com
             </Button>
             </NavLink>
             }
-            <NavLink to="/register" style={{textDecoration:'none'}}>
+            {/* <NavLink to="/register" style={{textDecoration:'none'}}>
             <Button style={{backgroundColor:'#810054'}}  sx={{ marginLeft: "10px" }} variant="contained">
               SignUp
             </Button>
-            </NavLink>
+            </NavLink> */}
             </Toolbar>
             </Box>
           </>
