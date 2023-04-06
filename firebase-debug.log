@@ -1,0 +1,101 @@
+[debug] [2023-04-06T13:17:58.930Z] ----------------------------------------------------------------------
+[debug] [2023-04-06T13:17:58.932Z] Command:       D:\downloads\Program Files\nodejs\node.exe C:\Users\mabia\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-06T13:17:58.932Z] CLI Version:   11.25.2
+[debug] [2023-04-06T13:17:58.932Z] Platform:      win32
+[debug] [2023-04-06T13:17:58.933Z] Node Version:  v16.17.0
+[debug] [2023-04-06T13:17:58.934Z] Time:          Thu Apr 06 2023 19:17:58 GMT+0600 (Bangladesh Standard Time)
+[debug] [2023-04-06T13:17:58.934Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-06T13:17:59.007Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-06T13:17:59.008Z] > authorizing via signed-in user (mabiamownita@gmail.com)
+[debug] [2023-04-06T13:17:59.008Z] [iam] checking project appointlet-764cd for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-04-06T13:17:59.010Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/appointlet-764cd:testIamPermissions [none]
+[debug] [2023-04-06T13:17:59.011Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/appointlet-764cd:testIamPermissions x-goog-quota-user=projects/appointlet-764cd
+[debug] [2023-04-06T13:17:59.011Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/appointlet-764cd:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-04-06T13:18:02.404Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/appointlet-764cd:testIamPermissions 200
+[debug] [2023-04-06T13:18:02.404Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/appointlet-764cd:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-04-06T13:18:02.405Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/appointlet-764cd [none]
+[debug] [2023-04-06T13:18:04.985Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/appointlet-764cd 200
+[debug] [2023-04-06T13:18:04.986Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/appointlet-764cd {"projectId":"appointlet-764cd","projectNumber":"18742162662","displayName":"appointlet","name":"projects/appointlet-764cd","resources":{"hostingSite":"appointlet-764cd"},"state":"ACTIVE","etag":"1_2212c544-41a1-4480-ae1b-3eb849a30bc2"}
+[info] 
+[info] === Deploying to 'appointlet-764cd'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-04-06T13:18:04.994Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/appointlet-764cd/versions [none]
+[debug] [2023-04-06T13:18:04.995Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/appointlet-764cd/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-04-06T13:18:07.903Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/appointlet-764cd/versions 200
+[debug] [2023-04-06T13:18:07.903Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/appointlet-764cd/versions {"name":"projects/18742162662/sites/appointlet-764cd/versions/bf6b142571c93875","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[appointlet-764cd]: beginning deploy... 
+[info] i  hosting[appointlet-764cd]: found 18 files in build 
+[debug] [2023-04-06T13:18:07.916Z] [hosting] uploading with 200 concurrency
+[debug] [2023-04-06T13:18:07.923Z] [hosting] hash cache [YnVpbGQ] stored for 18 files
+[debug] [2023-04-06T13:18:07.923Z] [hosting][hash queue][FINAL] {"max":2,"min":0,"avg":0,"active":0,"complete":18,"success":18,"errored":0,"retried":0,"total":18,"elapsed":3}
+[debug] [2023-04-06T13:18:07.924Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/18742162662/sites/appointlet-764cd/versions/bf6b142571c93875:populateFiles [none]
+[debug] [2023-04-06T13:18:07.924Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/18742162662/sites/appointlet-764cd/versions/bf6b142571c93875:populateFiles {"files":{"/asset-manifest.json":"9c83ffae373b9eae5b68e39c51c988eb7a7f95af66a3809c58b7870b5a2ba518","/favicon.ico":"fc957f2031da4f12733d04aef76b4b3f163b677f6ea9abbf3fca7bb1fd27aacc","/index.html":"550847c922bf84742f8285c742c36e041c54b83673098590891ccd08585c61b4","/logo192.png":"3ee59515172ee198f3be375979df15ac5345183e656720a381b8872b2a39dc8b","/logo512.png":"ee7e2f3fdb8209c4b6fd7bef6ba50d1b9dba30a25bb5c3126df057e1cb6f5331","/manifest.json":"aff3449bdc238776f5d6d967f19ec491b36aed5fb7f23ccff6500736fd58494a","/robots.txt":"bfe106a3fb878dc83461c86818bf74fc1bdc7f28538ba613cd3e775516ce8b49","/static/css/main.f58e185f.css":"77a28d10bbbde96f095b950f6176eaff2d5fb97373a83e2bf63c899673d377b7","/static/css/main.f58e185f.css.map":"fc35bae40b5bcf7dedfe79b905e83d2f4fd07d7cea8095ef9f58efa7216d3a8b","/static/js/787.7cbf6d53.chunk.js":"dd9fd31a8bb4228bea01bb4e24245be113bc832d5136d7448b343eaf794183a7","/static/js/787.7cbf6d53.chunk.js.map":"aa151d48d24a8e45ccb14d9c06bd4900cc164b91c7eee7d58a3af433a6ea6958","/static/js/main.2b1a1975.js":"603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322","/static/js/main.2b1a1975.js.LICENSE.txt":"39b990d40e1dd55f568cd4262ebcd41e8d50e78885da8753d882ea4852c9e511","/static/js/main.2b1a1975.js.map":"68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73","/static/media/booking-banner.873c1284e64e064c70cd.jpg":"4a4ad39c94f3cc9d961630793869a3f5a03c99a859f4cab655c619c4048d827f","/static/media/First1.d80d6420a336bbd8c7ac.jpg":"0cfbc9550a751b39ee053173c2b20eccfab97f2d85978c20e6d1a75f9db5723d","/static/media/lab-test.94473159049743af3e43.png":"b799f87199b7601513c84889cddbb7daef226acefbb357131de8a47e7b7ed5e5","/static/media/logo.bc6102450255358af903.PNG":"e55b2bdabdf3d9c99dd99ab28158597142e2bcd3f616469ab107685085102b11"}}
+[debug] [2023-04-06T13:18:09.841Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/18742162662/sites/appointlet-764cd/versions/bf6b142571c93875:populateFiles 200
+[debug] [2023-04-06T13:18:09.841Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/18742162662/sites/appointlet-764cd/versions/bf6b142571c93875:populateFiles {"uploadRequiredHashes":["68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73","603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files"}
+[debug] [2023-04-06T13:18:09.843Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73 [none]
+[debug] [2023-04-06T13:18:09.843Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73 [stream]
+[debug] [2023-04-06T13:18:09.844Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 [none]
+[debug] [2023-04-06T13:18:09.844Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 [stream]
+[debug] [2023-04-06T13:18:09.845Z] [hosting][populate queue][FINAL] {"max":1920,"min":1920,"avg":1920,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":1923}
+[debug] [2023-04-06T13:18:09.845Z] [hosting] uploads queued: 2
+[debug] [2023-04-06T13:18:36.049Z] [uploadQueue] Retrying task 68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73
+[debug] [2023-04-06T13:18:36.050Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73 [none]
+[debug] [2023-04-06T13:18:36.050Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73 [stream]
+[debug] [2023-04-06T13:18:40.258Z] [uploadQueue] Retrying task 603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322
+[debug] [2023-04-06T13:18:40.258Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 [none]
+[debug] [2023-04-06T13:18:40.258Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 [stream]
+[debug] [2023-04-06T13:18:59.930Z] [uploadQueue] Retrying task 68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73
+[debug] [2023-04-06T13:18:59.934Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73 [none]
+[debug] [2023-04-06T13:18:59.934Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73 [stream]
+[debug] [2023-04-06T13:19:11.071Z] [uploadQueue] Retrying task 603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322
+[debug] [2023-04-06T13:19:11.075Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 [none]
+[debug] [2023-04-06T13:19:11.075Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 [stream]
+[debug] [2023-04-06T13:19:40.949Z] [uploadQueue] Retrying task 603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322
+[debug] [2023-04-06T13:19:40.951Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 [none]
+[debug] [2023-04-06T13:19:40.951Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 [stream]
+[debug] [2023-04-06T13:19:59.880Z] [uploadQueue] Retrying task 68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73
+[debug] [2023-04-06T13:19:59.884Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73 [none]
+[debug] [2023-04-06T13:19:59.884Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73 [stream]
+[debug] [2023-04-06T13:20:14.179Z] [uploadQueue] Retrying task 603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322
+[debug] [2023-04-06T13:20:14.181Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 [none]
+[debug] [2023-04-06T13:20:14.182Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 [stream]
+[debug] [2023-04-06T13:20:50.606Z] [uploadQueue] Retrying task 603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322
+[debug] [2023-04-06T13:20:50.609Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 [none]
+[debug] [2023-04-06T13:20:50.610Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 [stream]
+[debug] [2023-04-06T13:21:05.884Z] [uploadQueue] Retrying task 68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73
+[debug] [2023-04-06T13:21:05.885Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73 [none]
+[debug] [2023-04-06T13:21:05.885Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/68d00b788e0a27890b0bf55082abf1e3a410b285678bb2f748eea9a5ee9e9f73 [stream]
+[debug] Task 603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322 failed: retries exhausted after 6 attempts, with error: Timeout reached making request to https://upload-firebasehosting.googleapis.com/upload/sites/appointlet-764cd/versions/bf6b142571c93875/files/603094850fa467a0365515ef5b30d268e7942edd3aca2dd691459aaf9ed9c322
+[debug] [2023-04-06T13:21:20.618Z] [hosting][upload queue][FINAL] {"max":0,"min":9999999999,"avg":0,"active":1,"complete":1,"success":0,"errored":1,"retried":9,"total":2,"elapsed":190777}
+[debug] [2023-04-06T13:21:25.635Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\mabia\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-04-06T13:34:52.152Z] ----------------------------------------------------------------------
+[debug] [2023-04-06T13:34:52.155Z] Command:       D:\downloads\Program Files\nodejs\node.exe C:\Users\mabia\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-04-06T13:34:52.156Z] CLI Version:   11.25.2
+[debug] [2023-04-06T13:34:52.156Z] Platform:      win32
+[debug] [2023-04-06T13:34:52.156Z] Node Version:  v16.17.0
+[debug] [2023-04-06T13:34:52.273Z] Time:          Thu Apr 06 2023 19:34:52 GMT+0600 (Bangladesh Standard Time)
+[debug] [2023-04-06T13:34:52.274Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-04-06T13:34:52.393Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-04-06T13:34:52.394Z] > authorizing via signed-in user (mabiamownita@gmail.com)
+[debug] [2023-04-06T13:34:52.394Z] [iam] checking project appointlet-764cd for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-04-06T13:34:52.409Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/appointlet-764cd:testIamPermissions [none]
+[debug] [2023-04-06T13:34:52.409Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/appointlet-764cd:testIamPermissions x-goog-quota-user=projects/appointlet-764cd
+[debug] [2023-04-06T13:34:52.409Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/appointlet-764cd:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-04-06T13:34:57.192Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/appointlet-764cd:testIamPermissions 200
+[debug] [2023-04-06T13:34:57.193Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/appointlet-764cd:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-04-06T13:34:57.194Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/appointlet-764cd [none]
+[debug] [2023-04-06T13:35:27.208Z] Timeout reached making request to https://firebase.googleapis.com/v1beta1/projects/appointlet-764cd
+[debug] [2023-04-06T13:35:32.229Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\mabia\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:253:49)
+    at listOnTimeout (node:internal/timers:559:17)
+    at processTimers (node:internal/timers:502:7)
+[error] 
+[error] Error: An unexpected error has occurred.

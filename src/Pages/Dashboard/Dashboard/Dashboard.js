@@ -16,7 +16,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import { MenuItem } from '@mui/material';
+import { Button, MenuItem } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 import {
   BrowserRouter as Router,
@@ -28,13 +28,14 @@ import {
 } from "react-router-dom";
 import DashboardHome from '../DashboardHome/DashboardHome';
 import { MakeAdmin } from '../MakeAdmin/MakeAdmin';
+import AddDoctor from '../AddDoctor/AddDoctor';
 
 const drawerWidth = 180;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const { path, url } = useRouteMatch();
+  let { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -44,7 +45,7 @@ function Dashboard(props) {
     <div>
       <Toolbar />
       <Divider />
-      <Link to="/appointment" style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Appointment</MenuItem></Link>
+      <NavLink to="/appointment" style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Appointment</MenuItem></NavLink>
       <Link to={`${url}`} style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Dashboard</MenuItem></Link>
       <Link to={`${url}/makeAdmin`} style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Make Admin</MenuItem></Link>
       <Link to={`${url}/addDoctor`} style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Add Doctor</MenuItem></Link>
@@ -142,11 +143,14 @@ function Dashboard(props) {
       >
         <Toolbar />  
         <Switch>
-          <Route exact path={path}>
+          <Route path={path}>
           <DashboardHome></DashboardHome>
           </Route>
           <Route path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
+          </Route>
+          <Route path={`${path}/addDoctor`}>
+            <AddDoctor></AddDoctor>
           </Route>
         </Switch>
       </Box>
