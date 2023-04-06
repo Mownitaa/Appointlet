@@ -108,14 +108,14 @@ appointlet@appointlet.com
             {
               user?.email ?
               <Box>
-                <NavLink to="/dashboard" style={{marginRight:'5px',textDecoration:'none'}}>
+                <Button onClick={logout} style={{backgroundColor:'#810054'}}  variant="contained">
+              Logout
+            </Button>
+            <NavLink to="/dashboard" style={{marginLeft:'5px',textDecoration:'none'}}>
             <Button style={{backgroundColor:'#810054'}} sx={{ marginLeft: "auto" }} variant="contained">
               Dashboard
             </Button>
             </NavLink>
-                  <Button onClick={logout} style={{backgroundColor:'#810054'}}  variant="contained">
-              Logout
-            </Button>
               </Box>
               :
               <NavLink to="/login" style={{textDecoration:'none'}}>
