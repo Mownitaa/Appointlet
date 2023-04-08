@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -17,18 +17,17 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Button, MenuItem } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Router } from 'react-router-dom';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
   Link,
-  useParams,
   useRouteMatch
 } from "react-router-dom";
 import DashboardHome from '../DashboardHome/DashboardHome';
 import { MakeAdmin } from '../MakeAdmin/MakeAdmin';
 import AddDoctor from '../AddDoctor/AddDoctor';
+import useAuth from '../../../hooks/useAuth';
 
 const drawerWidth = 180;
 
@@ -36,7 +35,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
-
+const {admin} = useAuth();
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -47,33 +46,13 @@ function Dashboard(props) {
       <Divider />
       <NavLink to="/appointment" style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Appointment</MenuItem></NavLink>
       <Link to={`${url}`} style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Dashboard</MenuItem></Link>
-      <Link to={`${url}/makeAdmin`} style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Make Admin</MenuItem></Link>
+
+    {
+      admin && <Box>
+        <Link to={`${url}/makeAdmin`} style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Make Admin</MenuItem></Link>
       <Link to={`${url}/addDoctor`} style={{color:'#810054',paddingLeft: 13, textDecoration: 'none'}}><MenuItem style={{fontSize:'1.2rem'}}>Add Doctor</MenuItem></Link>
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      {/* <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
+      </Box>
+    } 
     </div>
   );
 
@@ -143,13 +122,13 @@ function Dashboard(props) {
       >
         <Toolbar />  
         <Switch>
-          <Route path={path}>
+          <Route exact path={path}>
           <DashboardHome></DashboardHome>
           </Route>
-          <Route path={`${path}/makeAdmin`}>
+          <Route exact={true} path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
           </Route>
-          <Route path={`${path}/addDoctor`}>
+          <Route exact={true} path={`${path}/addDoctor`}>
             <AddDoctor></AddDoctor>
           </Route>
         </Switch>

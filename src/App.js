@@ -10,6 +10,8 @@ import Register from './Pages/Login/Register/Register';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import { MakeAdmin } from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import AddDoctor from './Pages/Dashboard/AddDoctor/AddDoctor';
 
 function App() {
   return (
@@ -21,30 +23,24 @@ function App() {
       <Route exact={true} path="/">
       <Home></Home>
       </Route>
-      <Route exact={true} path="/home"> 
+      <Route path="/home"> 
         <Home></Home>
       </Route>
-      <Route exact={true} path="/services"> 
+      <Route path="/services"> 
         <Services></Services>
       </Route>
-      <PrivateRoute exact={true} path="/appointment"> 
+      <PrivateRoute path="/appointment"> 
         <Appointment></Appointment>
       </PrivateRoute>
-      <Route exact={true} path="/login"> 
+      <Route path="/login"> 
         <Login></Login>
       </Route>
-      <Route exact={true} path="/register"> 
+      <Route path="/register"> 
         <Register></Register>
       </Route>
-      <PrivateRoute exact={true} path="/dashboard"> 
+      <PrivateRoute path="/dashboard"> 
         <Dashboard></Dashboard>
       </PrivateRoute>
-      {/* <Route exact="true" path="/about"> 
-        <About></About>
-      </Route> */}
-      {/* <Route exact="true" path="/contact"> 
-        <Appointment></Appointment>
-      </Route> */}
      </Switch>
      <Footer></Footer>
      </BrowserRouter>
