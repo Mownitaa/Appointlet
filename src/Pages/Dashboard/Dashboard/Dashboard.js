@@ -28,6 +28,7 @@ import DashboardHome from '../DashboardHome/DashboardHome';
 import { MakeAdmin } from '../MakeAdmin/MakeAdmin';
 import AddDoctor from '../AddDoctor/AddDoctor';
 import useAuth from '../../../hooks/useAuth';
+import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 
 const drawerWidth = 180;
 
@@ -125,12 +126,12 @@ const {admin} = useAuth();
           <Route exact path={path}>
           <DashboardHome></DashboardHome>
           </Route>
-          <Route exact={true} path={`${path}/makeAdmin`}>
+          <AdminRoute exact={true} path={`${path}/makeAdmin`}>
             <MakeAdmin></MakeAdmin>
-          </Route>
-          <Route exact={true} path={`${path}/addDoctor`}>
+          </AdminRoute>
+          <AdminRoute exact={true} path={`${path}/addDoctor`}>
             <AddDoctor></AddDoctor>
-          </Route>
+          </AdminRoute>
         </Switch>
       </Box>
     </Box>
