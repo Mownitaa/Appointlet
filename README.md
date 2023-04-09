@@ -1,8 +1,14 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+live site: (https://appointlet-764cd.web.app/).
+Server site: (https://github.com/Mownitaa/appointlet-server)
 
-## Available Scripts
+## About Appointlet:-
+‣Developed MERN stack project for implementing appointment booking system with user dashboard
+‣Generated JWT token for admin access
+‣Implemented firebase authentication with email/password and google sign in method
+‣Used MUI Date Picker for appointment booking 
+‣Created two database collections
 
 In the project directory, you can run:
 
