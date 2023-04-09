@@ -13,7 +13,7 @@ const Appopintments = ({date}) => {
     const [appointments, setAppointments] = useState([])
 
     useEffect( ()=>{
-        const url = `http://localhost:5000/appointments?email=${user.email}&date=${date}`
+        const url = `https://appointlet-server.vercel.app/appointments?email=${user.email}&date=${date}`
         fetch(url, {
           headers: {
             'authorization' : `Bearer ${token}`
