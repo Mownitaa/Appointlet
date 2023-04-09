@@ -1,14 +1,9 @@
 import React,{useState} from 'react'
 import AppBar from '@mui/material/AppBar';
 import { MenuItem } from '@mui/material';
-import { Button,Toolbar,Tabs,useMediaQuery,useTheme,Typography, Link } from '@mui/material';
+import { Button,Toolbar,Tabs,useMediaQuery,useTheme } from '@mui/material';
 
 import logo from "../../../images/logo.PNG"
-
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebookSquare,faLinkedin,faInstagramSquare } from '@fortawesome/free-brands-svg-icons'
-import { faMailBulk, faPhoneSquare } from '@fortawesome/free-solid-svg-icons'
 
 import DrawerComp from './Drawer';
 import { Box } from '@mui/system';
@@ -51,7 +46,7 @@ const {user,logout} = useAuth();
           {isMatch ? (
           <>
           <Toolbar style={{backgroundColor:'#fff'}}>
-           <img style={{width:20, height:23}} src={logo}/>
+           <img  alt="" style={{width:20, height:23}} src={logo}/>
             <NavLink to="/" style={{ textDecoration: 'none'}}><MenuItem style={{fontSize: "25px",fontWeight:'bold',color:'#810054'}}>Appointlet</MenuItem></NavLink>
             <DrawerComp/>
             </Toolbar>
@@ -88,7 +83,7 @@ appointlet@appointlet.com
 </div>
             <Box>
               <Toolbar style={{paddingLeft:'30px', backgroundColor:'#fff'}}>
-              <img style={{width:20, height:23}} src={logo}/>
+              <img  alt="" style={{width:20, height:23}} src={logo}/>
 
               <NavLink to="/" style={{textDecoration: 'none'}}><MenuItem sx={{marginLeft:'-8px', fontSize: "1.5rem",fontWeight:'bold',color:'#810054'}}>Appointlet</MenuItem></NavLink>
 
